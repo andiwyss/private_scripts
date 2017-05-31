@@ -7,6 +7,8 @@ import traceback
 import PIL
 from PIL import Image
 import re
+import time
+import datetime
 
 def ConfigureLogging():
     logFormatter = logging.Formatter("%(asctime)s [%(threadName)-12.12s] [%(levelname)-5.5s]  %(message)s")
@@ -146,9 +148,9 @@ class imageComparsion():
             except:
                 TimeStamp = '#'
             return {'Format':Format,'Mode':Mode,'Size':Size,'DateTimeStamp':TimeStamp}
-        except Exception,e:
+        except:
             #pass
-            print e
+            raise EnvironmentError
     #
 
     def _getCreateTime(self,in_file):
